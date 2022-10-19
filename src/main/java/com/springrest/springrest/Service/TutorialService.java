@@ -4,6 +4,7 @@ import com.springrest.springrest.dao.TutorialRepo;
 import com.springrest.springrest.entities.Tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class TutorialService {
     //find All post
     public List<Tutorial> GetAllPost()
     {
-	   return tutorialRepo.findAll ();
+	   return tutorialRepo.findAll (Sort.by ("title"));
     }
 
     //delete

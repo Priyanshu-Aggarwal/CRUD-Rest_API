@@ -1,6 +1,8 @@
 package com.springrest.springrest.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
