@@ -34,7 +34,7 @@ public class CommentController {
     {
 	  boolean ans=commentService.CommentSave (postId,comment);
 	  if(ans){
-		return new ResponseEntity<>("Comment Added Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<>("Comment Added Successfully!!", HttpStatus.CREATED);
 	  }
 	  return new ResponseEntity<> ("Error!! Tut ID may be wrong",HttpStatus.NOT_FOUND);
     }
