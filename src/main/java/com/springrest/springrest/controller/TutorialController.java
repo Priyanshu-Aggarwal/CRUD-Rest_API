@@ -3,7 +3,7 @@ package com.springrest.springrest.controller;
 
 import com.springrest.springrest.Service.TutorialService;
 import com.springrest.springrest.entities.Tutorial;
-import org.hibernate.annotations.Cache;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -36,17 +36,15 @@ public class TutorialController {
     }
 
     @PutMapping("post/update/{id}")                                         //OK
-    public ResponseEntity<?> UPDATE(@RequestBody  Tutorial tutorial, @PathVariable("id") int id)
-    {
-       boolean ans=tutorialService.UpdatePost (tutorial,id);
-        if(ans){
-            return new ResponseEntity<>("Data Updated Successfully", HttpStatus.ACCEPTED);
+    public ResponseEntity<?> UPDATE(@RequestBody  Tutorial tutorial, @PathVariable("id") int id) {
+        boolean ans = tutorialService.UpdatePost (tutorial, id);
+        if (ans) {
+            return new ResponseEntity<> ("Data Updated Successfully", HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<> ("Error!! ID may be wrong",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<> ("Error!! ID may be wrong", HttpStatus.NOT_FOUND);
     }
-
-    @GetMapping("/all")                                                     //OK
     @Cacheable("TUTORIALS")
+    @GetMapping("/all")                                            //OK
     public ResponseEntity<List<Tutorial>> READ()
     {
         List<Tutorial> list=tutorialService.GetAllPost ();
